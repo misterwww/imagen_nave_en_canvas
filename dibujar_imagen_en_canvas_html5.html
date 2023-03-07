@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+    
+        <meta charset="UTF-8"/>
+        <title>dibujar nave desde imagen</title>
+
+    </head>
+    
+    <body>
+
+        <p>Imagen de la nave del juego sin canvas, html directo y sin camvas, no es tan practico para darle el codigo javascript y armar un juego:</p>
+
+        <img width="50px" height="50px" src="nave.png" alt="nave"/>
+
+        <p>Aqui lo hacemos en "nuestro_canvas" envuelto en un "borde rojo" y "fondo negro" donde dibujaremos nuestra nave a bajo y centradita al canvas:</p>
+
+        <canvas id="nuestro_canvas_ID" width="320px" height="240px" style="border: 2px solid red; background: black;">
+            Tu navegador no soporta la etiqueta canvas.
+        </canvas>
+        
+        <script>
+
+        // en javascript esto es un comentario
+        
+        /* o
+        tambien
+        esto*/
+
+        function todo_el_javascript()
+
+            {
+            // asignamos el id de nuestro canvas a una variable
+            const nuestro_canvas = document.getElementById("nuestro_canvas_ID");
+
+            // le otorgamos un contexto 2D 
+            var espacio_interestelar_dentro_canvas_contexto_2D = nuestro_canvas.getContext("2d");
+           
+            // almacenamos en la variable "nuestra_nave_dentro_canvas_gestionada_con_javascript" una instancia al objeto Image
+            var nuestra_nave_dentro_canvas_gestionada_con_javascript = new Image();
+            
+            // definimos ruta relativa a este html de la imagen de le nave
+            nuestra_nave_dentro_canvas_gestionada_con_javascript.src = "nave.png";
+                       
+            // dibujar la imagen de la nave en el canvas como hemos mencionado
+            espacio_interestelar_dentro_canvas_contexto_2D.drawImage(nuestra_nave_dentro_canvas_gestionada_con_javascript , 0, 0, 100, 100, ((nuestro_canvas.width / 2) - (nuestra_nave_dentro_canvas_gestionada_con_javascript.width / 2)), (nuestro_canvas.height - nuestra_nave_dentro_canvas_gestionada_con_javascript.height), 100, 100);
+
+            }
+            
+        todo_el_javascript();
+        
+        </script>
+
+    </body>
+
+</html>

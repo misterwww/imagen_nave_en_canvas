@@ -37,31 +37,111 @@
         // en javascript esto es un comentario
         
         /* o
+        bien
         tambien
-        esto*/
+        esto
+        lo
+        es */
 
-        function todo_el_javascript ()
+        // empezamos!!!!!!!!
+
+        // variables globales de control de la nave (x) y pintar lienzo (canvas)
+
+        var x;
+        var y;
+
+        //CANVAS
+
+        // asignamos el id de nuestro canvas a una variable
+        var nuestro_canvas = document.getElementById("nuestro_canvas_ID");
+
+        // le otorgamos un contexto 2D
+        var espacio_interestelar_dentro_canvas_contexto_2D = nuestro_canvas.getContext("2d");
+
+        // almacenamos en la variable "nuestra_nave_dentro_canvas_gestionada_con_javascript" una instancia al objeto Image
+        var nuestra_nave_dentro_canvas_gestionada_con_javascript = new Image();
+
+        // definimos ruta relativa a este html de la imagen de le nave
+        nuestra_nave_dentro_canvas_gestionada_con_javascript.src = "nave.png";
+
+        // una vez definidas las variables del canvas asignamos a la variable "x" la posicion de la nave dentro del canvas
+        x=((nuestro_canvas.width / 2) - (nuestra_nave_dentro_canvas_gestionada_con_javascript.width / 2));
+        y=(nuestro_canvas.height - nuestra_nave_dentro_canvas_gestionada_con_javascript.height)
+
+        function limpiar_el_canvas()
 
             {
-            // asignamos el id de nuestro canvas a una variable
-            var nuestro_canvas = document.getElementById("nuestro_canvas_ID");
 
-            // le otorgamos un contexto 2D 
-            var espacio_interestelar_dentro_canvas_contexto_2D = nuestro_canvas.getContext("2d");
-           
-            // almacenamos en la variable "nuestra_nave_dentro_canvas_gestionada_con_javascript" una instancia al objeto Image
-            var nuestra_nave_dentro_canvas_gestionada_con_javascript = new Image();
-            
-            // definimos ruta relativa a este html de la imagen de le nave
-            nuestra_nave_dentro_canvas_gestionada_con_javascript.src = "nave.png";
-                       
-            // dibujar la imagen de la nave en el canvas como hemos mencionado
-            espacio_interestelar_dentro_canvas_contexto_2D.drawImage(nuestra_nave_dentro_canvas_gestionada_con_javascript, 0, 0, 100, 100, ((nuestro_canvas.width / 2) - (nuestra_nave_dentro_canvas_gestionada_con_javascript.width / 2)), (nuestro_canvas.height - nuestra_nave_dentro_canvas_gestionada_con_javascript.height), 100, 100);
+            // limpiar frame anterior canvas
+            espacio_interestelar_dentro_canvas_contexto_2D.fillStyle = "black";
+            espacio_interestelar_dentro_canvas_contexto_2D.fillRect(0, 0, nuestro_canvas.width, nuestro_canvas.height);
 
             }
-            
-        todo_el_javascript();
-        
+
+        function dibujar_la_nave()
+
+            {
+
+            // dibujar la imagen de la nave en el canvas como hemos mencionado
+            espacio_interestelar_dentro_canvas_contexto_2D.drawImage(nuestra_nave_dentro_canvas_gestionada_con_javascript, 0, 0, 100, 100, x, y, 100, 100);
+
+            }
+
+        function refrescar()
+
+            {
+
+            limpiar_el_canvas();
+            dibujar_la_nave();
+
+            }
+
+        document.onkeydown = tecla_pulsada;
+
+        function tecla_pulsada (evento_de_teclado)
+
+            {
+
+            // CURSOR IZQUIERDA
+            if ( evento_de_teclado.keyCode == '37' && x > 0)
+
+                {
+
+                x = x - 5;
+
+                }
+
+            // CURSOR DERECHA
+            if ( evento_de_teclado.keyCode == '39' && x < (320-100))
+
+                {
+
+                x = x + 5;
+
+                }
+
+             // CURSOR ARRIBA
+            if ( evento_de_teclado.keyCode == '38' && y > 0)
+
+                {
+
+                y = y - 5;
+
+                }
+
+            // CURSOR ABAJO
+            if ( evento_de_teclado.keyCode == '40' && y < (240-100))
+
+                {
+
+                y = y + 5;
+
+                }
+
+            }
+
+        setInterval(refrescar, 50);
+
         </script>
 
     </body>

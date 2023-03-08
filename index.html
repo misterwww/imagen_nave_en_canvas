@@ -63,12 +63,10 @@
 
         // definimos ruta relativa a este html de la imagen de le nave
         nuestra_nave_dentro_canvas_gestionada_con_javascript.src = "nave.png";
-        nuestra_nave_dentro_canvas_gestionada_con_javascript.width = "100px";
-        nuestra_nave_dentro_canvas_gestionada_con_javascript.height = "100px"; 
-        
+
         // una vez definidas las variables del canvas asignamos a la variable "x" la posicion de la nave dentro del canvas
         x=((nuestro_canvas.width / 2) - (nuestra_nave_dentro_canvas_gestionada_con_javascript.width / 2));
-        y=(nuestro_canvas.height - nuestra_nave_dentro_canvas_gestionada_con_javascript.height);
+        y=(nuestro_canvas.height - nuestra_nave_dentro_canvas_gestionada_con_javascript.height)
 
         function limpiar_el_canvas()
 
@@ -85,7 +83,7 @@
             {
 
             // dibujar la imagen de la nave en el canvas como hemos mencionado
-            espacio_interestelar_dentro_canvas_contexto_2D.drawImage(nuestra_nave_dentro_canvas_gestionada_con_javascript, 0, 0, nuestra_nave_dentro_canvas_gestionada_con_javascript.width, nuestra_nave_dentro_canvas_gestionada_con_javascript.height, x, y, nuestra_nave_dentro_canvas_gestionada_con_javascript.width, nuestra_nave_dentro_canvas_gestionada_con_javascript.height);
+            espacio_interestelar_dentro_canvas_contexto_2D.drawImage(nuestra_nave_dentro_canvas_gestionada_con_javascript, 0, 0, 100, 100, x, y, 100, 100);
 
             }
 

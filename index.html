@@ -24,11 +24,11 @@
 
         <p>Imagen de la nave del juego sin canvas, html directo y sin camvas, no es tan practico para darle el codigo javascript y armar un juego:</p>
 
-        <img src="nave.png" alt="nave"/>
+        <img width="50px" height="50px" src="nave.png" alt="nave"/>
 
         <p>Aqui lo hacemos en "nuestro_canvas" envuelto en un "borde rojo" y "fondo negro" donde dibujaremos nuestra nave a bajo y centradita al canvas:</p>
 
-        <canvas id="nuestro_canvas_ID" width="320px" height="240px">
+        <canvas id="nuestro_canvas_ID" width="640px" height="480px">
             Tu navegador no soporta la etiqueta canvas.
         </canvas>
         
@@ -68,7 +68,7 @@
         
         // una vez definidas las variables del canvas asignamos a la variable "x" la posicion de la nave dentro del canvas
         x=((nuestro_canvas.width / 2) - (nuestra_nave_dentro_canvas_gestionada_con_javascript.width / 2));
-        y=(nuestro_canvas.height - nuestra_nave_dentro_canvas_gestionada_con_javascript.height)
+        y=(nuestro_canvas.height - nuestra_nave_dentro_canvas_gestionada_con_javascript.height);
 
         function limpiar_el_canvas()
 
